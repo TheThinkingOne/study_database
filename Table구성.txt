@@ -1,0 +1,40 @@
+OrderDetails 테이블
+OrderDetailID	OrderID	ProductID	Quantity
+
+Orders 테이블
+OrderID	CustomerID	EmployeeID	OrderDate	 ShipperID
+
+Products 테이블
+ProductID	ProductName	SupplierID	CategoryID	Unit	Price
+
+SUPPLIERS 테이블
+SupplierID	SupplierName	ContactName	Address	City	PostalCode	Country	Phone
+
+CUSTOMERS 테이블
+CustomerID CustomerName	ContactName	Address	City	PostalCode	Country
+
+- Table : OrderDetails
+- 조건 : 제품명,가격, 주문 갯수, 고객명 표시
+- 결과 표시
+
+SELECT P.PRODUCTNAME, P.PRICE, O.QUANTITY, O.ORDERID
+FROM PRODUCTS P 
+LEFT JOIN ORDERDETAILS O ON (P.PRODUCTID = O.PRODUCTID)
+
+
+
+
+- Table : Orders
+- 조건 : 가장 많이 주문 받은 회사 직원명과 갯수
+- 결과 표시
+
+SELECT SupplierName, o.Quantity 
+
+- Table : Customers, Orders
+- 조건 : CustomerName별로 주문 갯수 표시
+- 연결 키는 각자 찾기
+- 결과 표시
+
+
+
+
