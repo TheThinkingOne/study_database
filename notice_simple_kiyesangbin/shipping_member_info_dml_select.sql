@@ -1,0 +1,18 @@
+USE study_deliver_member_info_kiye;
+
+SELECT 
+    M.NAME AS 회원이름,
+    COUNT(MS.HOBBY_FK) AS 취미의갯수,
+    M.AGE AS 나이,
+    M.GENDER AS 성별,
+    A.ADDRESS AS 배송주소
+FROM 
+    MEMBER M
+JOIN 
+    MEMBER_SEARCH MS ON M.MEMBER_PK = MS.MEMBER_FK
+JOIN 
+    ADDRESS A ON M.ADDRESS_FK = A.ADDRESS_PK
+GROUP BY 
+    M.NAME, M.AGE, M.GENDER, A.ADDRESS
+ORDER BY 
+    M.NAME;
