@@ -1,0 +1,15 @@
+USE study_notice_kiye;
+
+SELECT 
+    N.CONTENT AS 공지내용,
+    W.Field AS 작성자,
+    COUNT(V.VISITOR_PK) AS 방문자수
+FROM 
+    NOTICE N
+INNER JOIN 
+    WRITERS W ON N.WRITER_FK = W.WRITER_PK
+INNER JOIN 
+    VISITORS V ON N.Notice_PK = V.NOTICE_FK
+GROUP BY 
+    N.CONTENT, W.Field;
+
