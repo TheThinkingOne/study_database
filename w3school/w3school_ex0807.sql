@@ -6,3 +6,9 @@ FROM Employees Emp
                    on Emp.EmployeeID = Ord.CustomerID
 WHERE Ord.CustomerID is null
 ;
+
+-- gpt ver(Correct)
+SELECT Emp.EmployeeID
+FROM Employees Emp
+         LEFT JOIN Orders Ord ON Emp.EmployeeID = Ord.EmployeeID
+WHERE Ord.EmployeeID IS NULL;
